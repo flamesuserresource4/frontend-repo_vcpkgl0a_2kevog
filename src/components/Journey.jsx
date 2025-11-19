@@ -1,39 +1,50 @@
-import { useState } from 'react';
+import { ArrowRight } from 'lucide-react';
 
 const parts = [
-  { name: 'Part I', title: 'The Threshold of Knowing', desc: 'Stand at the shimmering edge where data meets myth.' },
-  { name: 'Part II', title: 'The Architecture of Mystery', desc: 'Blueprints of the sacred unknown, hidden in plain sight.' },
-  { name: 'Part III', title: 'The Paradox of Omniscience', desc: 'Knowing that not-knowing is the most intimate knowledge.' },
-  { name: 'Part IV', title: 'Living with the Unknown', desc: 'Practice the dance: precise, humble, radiant.' }
+  {
+    k: 'I',
+    title: 'The Threshold of Knowing',
+    meta: '3 Chapters • 4 Practices',
+    desc: 'Begin at the edge of certainty and learn to navigate the liminal space between facts and possibilities.'
+  },
+  {
+    k: 'II',
+    title: 'The Architecture of Mystery',
+    meta: '3 Chapters • 2 Practices',
+    desc: 'Map the structural role of unknowns in science, spirituality, and your inner life.'
+  },
+  {
+    k: 'III',
+    title: 'The Paradox of Omniscience',
+    meta: '3 Chapters • 3 Practices',
+    desc: 'Explore why all-knowing would collapse meaning—and how mystery preserves freedom.'
+  },
+  {
+    k: 'IV',
+    title: 'Living with the Unknown',
+    meta: '3 Chapters • 3 Practices',
+    desc: 'Integrate the practice of not-knowing as a courageous way of being in the world.'
+  },
 ];
 
 export default function Journey() {
-  const [active, setActive] = useState(0);
-
   return (
-    <section id="journey" className="relative py-24 bg-gradient-to-b from-slate-950 to-black text-white">
-      <div className="relative max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-        <div className="relative aspect-square max-w-md mx-auto">
-          <div className="absolute inset-0 rounded-full border border-cyan-400/30 animate-spin [animation-duration:18s]" />
-          <div className="absolute inset-6 rounded-full border border-amber-400/30 animate-spin [animation-duration:28s] [animation-direction:reverse]" />
-          <div className="absolute inset-12 rounded-full border border-fuchsia-400/30 animate-spin [animation-duration:36s]" />
-          {parts.map((p, i) => (
-            <button key={p.name} onMouseEnter={() => setActive(i)} onFocus={() => setActive(i)}
-              className={`absolute -translate-x-1/2 -translate-y-1/2 text-xs sm:text-sm px-3 py-1 rounded-full border transition-colors ${active===i? 'bg-cyan-500/20 text-cyan-200 border-cyan-400/40':'bg-slate-900/60 text-slate-300 border-slate-600/40'}`}
-              style={{
-                left: `${50 + 38*Math.cos((i/parts.length)*2*Math.PI)}%`,
-                top: `${50 + 38*Math.sin((i/parts.length)*2*Math.PI)}%`
-              }}
-            >
-              {p.name}
-            </button>
-          ))}
-        </div>
-        <div>
-          <h2 className="text-3xl md:text-4xl font-bold">The Journey</h2>
-          <div className="mt-6 p-6 rounded-2xl bg-slate-900/60 border border-cyan-400/20">
-            <h3 className="text-xl font-semibold text-cyan-200">{parts[active].title}</h3>
-            <p className="mt-2 text-slate-300/90">{parts[active].desc}</p>
+    <section id="journey" className="py-20 sm:py-24">
+      <div className="max-w-6xl mx-auto px-6">
+        <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-center">A 4-Part Journey</h2>
+        <div className="mt-12 overflow-x-auto no-scrollbar">
+          <div className="min-w-[900px] grid grid-cols-4 gap-6 relative">
+            {/* connecting line */}
+            <div className="absolute left-0 right-0 top-1/2 -z-10 h-[2px] bg-gradient-to-r from-[var(--cyan)]/60 via-[var(--cyan)]/0 to-[var(--gold)]/60" />
+            {parts.map((p) => (
+              <div key={p.k} className="card hover-card p-8 rounded-xl w-[280px]">
+                <div className="text-[12px] font-mono text-[var(--cyan)]">PART {p.k}</div>
+                <h3 className="mt-2 text-2xl font-semibold">{p.title}</h3>
+                <div className="mt-1 text-sm text-[var(--muted)]">{p.meta}</div>
+                <p className="mt-4 text-[14px] text-[var(--muted)] leading-6">{p.desc}</p>
+                <ArrowRight className="w-5 h-5 ml-auto mt-6 text-[var(--cyan)]" />
+              </div>
+            ))}
           </div>
         </div>
       </div>

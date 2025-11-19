@@ -4,23 +4,54 @@
 
 @layer base {
   :root {
-    --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --bg: #0A0A0F;
+    --surface: #141419;
+    --border: #2A2A35;
+    --text: #FFFFFF;
+    --muted: #A0A0B0;
+    --cyan: #00D9FF;
+    --gold: #FFB800;
+    --success: #00E676;
   }
-  html { font-family: var(--font-sans); font-feature-settings: "rlig" 1, "calt" 1; }
-  body { @apply antialiased bg-black; }
+  html { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  body { @apply antialiased bg-[var(--bg)] text-[var(--text)]; }
+  :focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
 }
 
-/* Glitch effect for the word GLITCH and other accents */
+/* Background mesh + grain */
 @layer utilities {
-  .glitch::before, .glitch::after {
-    content: attr(data-text);
-    position: absolute; left: 0; top: 0; width: 100%; height: 100%;
-    overflow: hidden; pointer-events: none;
+  .bg-mesh {
+    background: radial-gradient(800px 400px at 20% 10%, rgba(0,217,255,0.12), transparent 60%),
+                radial-gradient(1000px 600px at 80% 0%, rgba(120,80,255,0.10), transparent 60%),
+                radial-gradient(1200px 800px at 50% 100%, rgba(0,0,0,0.6), transparent 70%),
+                #0A0A0F;
   }
-  .glitch::before { color: #22d3ee; transform: translate(1px, 0); clip-path: inset(0 0 45% 0); mix-blend-mode: screen; }
-  .glitch::after { color: #a78bfa; transform: translate(-1px, 0); clip-path: inset(55% 0 0 0); mix-blend-mode: screen; }
-  .glitch:hover::before { transform: translate(2px, 0); }
-  .glitch:hover::after { transform: translate(-2px, 0); }
-
-  .glow-cyan { box-shadow: 0 0 0 1px rgba(34,211,238,0.35), 0 0 24px rgba(34,211,238,0.25) inset; }
+  .grain {
+    background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 2px);
+    mix-blend-mode: overlay;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg transition-transform duration-150 active:scale-95;
+  }
+  .btn-primary {
+    @apply btn bg-[var(--cyan)] text-black hover:brightness-110;
+  }
+  .btn-outline {
+    @apply btn border border-[var(--border)] text-[var(--text)] hover:border-[var(--cyan)]/60 hover:text-[var(--cyan)];
+    background: linear-gradient(#0A0A0F,#0A0A0F) padding-box,
+               linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02)) border-box;
+  }
+  .card {
+    @apply bg-[var(--surface)] border border-[var(--border)] rounded-2xl;
+  }
+  .hover-card {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(0,217,255,0.08)] hover:border-[var(--cyan)]/50;
+  }
+  .gradient-border {
+    position: relative;
+    border-radius: 16px;
+    background: linear-gradient(#141419,#141419) padding-box,
+               linear-gradient(135deg, rgba(0,217,255,0.6), rgba(255,184,0,0.6)) border-box;
+    border: 1px solid transparent;
+  }
 }

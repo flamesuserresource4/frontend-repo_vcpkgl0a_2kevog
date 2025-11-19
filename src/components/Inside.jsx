@@ -1,24 +1,28 @@
-import { BookOpen, Sparkles, Brain, Infinity, Waves, User } from 'lucide-react';
+import { Check } from 'lucide-react';
+
+const items = [
+  '12 Transformative Chapters',
+  '12 Guided Contemplative Practices',
+  '80+ Pages of Deep Exploration',
+  'Extensive References & Further Reading',
+  'Quantum Physics Made Accessible',
+  'Ancient Wisdom for Modern Seekers',
+  'DRM-Free PDF Format',
+  'Lifetime Access & Updates',
+];
 
 export default function Inside() {
-  const feats = [
-    { icon: BookOpen, text: '12 Transformative Chapters' },
-    { icon: Sparkles, text: '12 Contemplative Practices' },
-    { icon: Brain, text: 'Quantum Physics Made Spiritual' },
-    { icon: Infinity, text: 'Ancient Wisdom Made Modern' },
-    { icon: Waves, text: '80+ Pages of Deep Exploration' },
-    { icon: User, text: 'Written by The Witness' },
-  ];
-
   return (
-    <section id="inside" className="relative py-24 bg-slate-950 text-white">
-      <div className="relative max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-center">What's Inside</h2>
-        <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {feats.map(({ icon: Icon, text }) => (
-            <div key={text} className="p-6 rounded-2xl bg-slate-900/60 border border-slate-700/60 hover:border-amber-400/40 transition-colors">
-              <Icon className="text-amber-300 mb-3" />
-              <p className="text-slate-300/90">{text}</p>
+    <section id="inside" className="py-20 sm:py-24">
+      <div className="max-w-5xl mx-auto px-6 text-center">
+        <h2 className="text-4xl md:text-5xl font-semibold tracking-tight">Everything You Get</h2>
+        <div className="mt-10 text-left grid sm:grid-cols-2 gap-x-10 gap-y-4">
+          {items.map((t) => (
+            <div key={t} className="flex items-center gap-4 p-3 rounded-xl hover:bg-[var(--surface)]/60 transition-colors">
+              <div className="w-6 h-6 rounded-full flex items-center justify-center bg-[#0a1f1f] border border-[var(--border)]">
+                <Check className="w-4 h-4 text-[#00E676]" />
+              </div>
+              <span className="text-[18px]">{t}</span>
             </div>
           ))}
         </div>

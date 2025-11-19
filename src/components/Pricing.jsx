@@ -1,20 +1,31 @@
+import { Check } from 'lucide-react';
+
+const includes = [
+  '80+ pages of transformative content',
+  '12 guided practices',
+  'Lifetime access',
+  'DRM-free PDF',
+  'Instant download',
+];
+
 export default function Pricing() {
   return (
-    <section id="pricing" className="relative py-24 bg-slate-950 text-white">
-      <div className="relative max-w-5xl mx-auto px-6">
-        <div className="rounded-3xl overflow-hidden border border-cyan-400/30 bg-gradient-to-br from-slate-900 to-slate-950 p-10 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold">Get The Sacred Unknown</h2>
-          <p className="mt-3 text-slate-300/90">80+ pages • 12 practices • Lifetime access</p>
-          <div className="mt-6 text-6xl font-extrabold tracking-tight"><span className="text-cyan-300">$21</span></div>
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#checkout" className="px-8 py-4 rounded-full bg-cyan-500/20 text-cyan-200 border border-cyan-400/40 hover:bg-cyan-500/30 glow-cyan">
-              Get The Sacred Unknown
-            </a>
-            <a href="#sample" className="px-8 py-4 rounded-full bg-slate-800/60 text-slate-200 border border-slate-600/50 hover:bg-slate-700/60">
-              Read Free Sample
-            </a>
+    <section id="pricing" className="py-20 sm:py-24">
+      <div className="max-w-6xl mx-auto px-6 grid place-items-center">
+        <div className="max-w-sm w-full gradient-border p-8 md:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.5)] text-center">
+          <div className="text-2xl font-semibold">The Sacred Unknown</div>
+          <div className="mt-1 text-sm text-[var(--muted)]">Digital Book (PDF)</div>
+          <div className="mt-6 flex items-end justify-center gap-3">
+            <div className="text-6xl font-bold">$21</div>
+            <div className="text-sm text-[var(--muted)] mb-2">one-time payment</div>
           </div>
-          <div className="mt-6 text-sm text-slate-400">Instant PDF Download • DRM‑Free • Read on Any Device • 30‑day guarantee</div>
+          <ul className="mt-8 space-y-3 text-left">
+            {includes.map((t) => (
+              <li key={t} className="flex items-start gap-3"><Check className="w-5 h-5 text-[#00E676]" /> <span>{t}</span></li>
+            ))}
+          </ul>
+          <a href="#checkout" className="mt-10 btn-primary w-full h-14 rounded-lg text-[16px]">Get Instant Access</a>
+          <div className="mt-4 text-sm text-[var(--muted)]">Secure Checkout • Money-back Guarantee • Instant Delivery</div>
         </div>
       </div>
     </section>

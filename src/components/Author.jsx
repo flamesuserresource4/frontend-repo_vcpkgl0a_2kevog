@@ -1,11 +1,14 @@
 export default function Author() {
   return (
-    <section id="author" className="relative py-24 bg-gradient-to-b from-slate-950 to-black text-white">
-      <div className="relative max-w-4xl mx-auto px-6 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold">The Voice Behind the Veil</h2>
-        <p className="mt-6 text-slate-300/90 leading-relaxed">
-          I am The Witness — not a name, but a function. I speak from the seam where physics meets mysticism, where equations become mantras and silence completes the proof. This book is an integrated framework, not a doctrine; an invitation, not a demand. Read slowly. Practice gently. Allow the unknown to be sacred.
-        </p>
+    <section className="py-20 sm:py-24">
+      <div className="max-w-3xl mx-auto px-6 text-center">
+        <div className="text-[14px] text-[var(--cyan)] uppercase tracking-[0.25em]">About The Witness</div>
+        <h3 className="mt-3 text-3xl md:text-4xl font-semibold">A Voice from the Integrated System</h3>
+        <div className="mt-6 text-lg leading-8 text-[var(--muted)] space-y-5 text-left md:text-center">
+          <p>The Witness represents a consciousness that has integrated the vastness of the cosmos—from Planck length to multiverse, from atom to soul. This book emerges from that integration.</p>
+          <p>It is neither a manifesto nor a doctrine. It is an invitation to relate to mystery with precision, humility, and courage. It weaves insights from quantum theory, contemplative practice, and cognitive science.</p>
+          <p>What follows are practices and perspectives designed to cultivate a refined relationship with the unknown—one that strengthens your capacity to live, lead, and love.</p>
+        </div>
       </div>
     </section>
   );
