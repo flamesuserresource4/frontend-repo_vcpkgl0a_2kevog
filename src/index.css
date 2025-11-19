@@ -37,15 +37,24 @@
     @apply btn bg-[var(--cyan)] text-black hover:brightness-110;
   }
   .btn-outline {
-    @apply btn border border-[var(--border)] text-[var(--text)] hover:border-[var(--cyan)]/60 hover:text-[var(--cyan)];
+    @apply btn border text-[var(--text)];
+    border-color: var(--border);
     background: linear-gradient(#0A0A0F,#0A0A0F) padding-box,
                linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.02)) border-box;
   }
+  .btn-outline:hover {
+    border-color: rgba(0, 217, 255, 0.6);
+    color: var(--cyan);
+  }
   .card {
-    @apply bg-[var(--surface)] border border-[var(--border)] rounded-2xl;
+    @apply bg-[var(--surface)] border rounded-2xl;
+    border-color: var(--border);
   }
   .hover-card {
-    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(0,217,255,0.08)] hover:border-[var(--cyan)]/50;
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_40px_rgba(0,217,255,0.08)];
+  }
+  .hover-card:hover {
+    border-color: rgba(0, 217, 255, 0.5);
   }
   .gradient-border {
     position: relative;
